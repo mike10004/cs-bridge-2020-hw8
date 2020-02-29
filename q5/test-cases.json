@@ -1,0 +1,16 @@
+{
+  "input": "{nombre}\n",
+  "expected": "Enter name: {nombre}\n{output}\n",
+  "param_names": [
+    "nombre", "output"
+  ],
+  "test_cases": [
+    ["Mary Average User", "User, Mary A."],
+    ["Mary A. User", "User, Mary A."],
+    ["Mary A User", "User, Mary A."],
+    ["Gilly Xavier Wushman-Topp", "Wushman-Topp, Gilly X."],
+    ["e. e. cummings", "cummings, e. e."],
+    ["a b c", "c, a b."],
+    ["A B C", "C, A B."]
+  ]
+}
