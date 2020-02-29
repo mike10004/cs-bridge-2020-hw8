@@ -6,7 +6,7 @@
 using namespace std;
 
 /**
- * Swaps two values.
+ * Swaps the values of two variables.
  * @param a reference to one value
  * @param b reference to the other value
  */
@@ -27,9 +27,8 @@ void reverseArray(int arr[], int arrSize);
 bool isEven(int number);
 
 /**
- * Updates an array so that only even numbers remain,
- * in their original order, and returns the number of
- * even numbers, which can be interpreted as the new 
+ * Updates an array so that only even numbers remain, in their original order, 
+ * and returns the count of even numbers, which can be interpreted as the new 
  * array length.
  * @param arr array
  * @param arrSize original array length on input, new array length upon return
@@ -37,7 +36,8 @@ bool isEven(int number);
 void removeOdd(int arr[], int& arrSize);
 
 /**
- * Updates an array so that all odd numbers are at positions before all even numbers.
+ * Updates an array so that all odd numbers are at positions before all even 
+ * numbers.
  * @param arr array
  * @param arrSize array length
  */
