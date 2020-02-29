@@ -60,6 +60,7 @@ int main() {
     if (seedStr != nullptr) {
         seed = strtol(seedStr, nullptr, 10);
     }
+    // stage: cut stop
     // cerr << seed << endl;  // stage: cut
     srand(seed);
     cout << "PIN: ";
