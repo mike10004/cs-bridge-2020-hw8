@@ -1,6 +1,6 @@
 {
   "input": "{nombre}\n",
-  "expected": "Enter name: {nombre}\n{output}\n",
+  "expected": "Enter full name: {nombre}\n{output}\n",
   "param_names": [
     "nombre", "output"
   ],
