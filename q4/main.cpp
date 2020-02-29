@@ -55,7 +55,12 @@ bool requestPin(const int pinSubs[], int pinLength) {
 int main() {
     int pinSubs[PIN_LENGTH];
     long seed = time(nullptr);
-    cerr << seed << endl;  // stage: cut
+    // stage: cut start
+    const char *seedStr = getenv("Q4_SEED");
+    if (seedStr != nullptr) {
+        seed = strtol(seedStr, nullptr, 10);
+    }
+    // cerr << seed << endl;  // stage: cut
     srand(seed);
     cout << "PIN: ";
     printArray(DIGITS, NUM_DIGITS);
@@ -68,7 +73,7 @@ int main() {
         cout << "not ";
     }
     cout << "correct" << endl;
-    return 0;    
+    return 0;
 }
 
 #pragma clang diagnostic pop            // stage: cut
