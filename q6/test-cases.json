@@ -1,0 +1,29 @@
+{
+  "input": "{line}\n",
+  "expected": "Please enter a line of text:\n{line}\n{masked}\n",
+  "param_names": [
+    "line", "masked"
+  ],
+  "test_cases": [
+    [
+      "My userID is john17 and my 4 digit pin is 1234 which is secret",
+      "My userID is john17 and my x digit pin is xxxx which is secret"
+    ],
+    [
+      "The a12345 is 3 and 19 and 987",
+      "The a12345 is x and xx and xxx"
+    ],
+    [
+      "1 23 456 78 9",
+      "x xx xxx xx x"
+    ],
+    [
+      "No digits here",
+      "No digits here"
+    ],
+    [
+      "    45 abc 3333 ",
+      "    xx abc xxxx "
+    ]
+  ]
+}
