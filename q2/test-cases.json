@@ -1,20 +1,47 @@
 {
-  "input": "{nombre}\n",
-  "input_file": "input-template.txt",
-  "expected": "Enter your name: {nombre}\nhello, {nombre}\n",
-  "expected_file": "expected-template.txt",
+  "input": "{word}\n",
+  "expected": "Please enter a word: {word}\n{word} is {decision}a palindrome\n",
   "param_names": [
-    "nombre"
+    "word", "decision"
   ],
   "test_cases": [
+    ["a", ""], 
+    ["@", ""],
     [
-      "jane"
+      "level", ""
     ],
     [
-      "julia"
+      "civic", ""
     ],
     [
-      "jennifer"
+      "reviver", ""
+    ],
+    [
+      "RADAR", ""
+    ],
+    [
+      "Racecar", ""
+    ],
+    [
+      "rOtOr", ""
+    ],
+    [
+      "noon", ""
+    ],
+    [
+      "reddeR", ""
+    ],
+    [
+      "hello", "not "
+    ],
+    [
+      "Please", "not "
+    ],
+    [
+      "program", "not "
+    ],
+    [
+      "palindrome", "not "
     ]
   ]
 }
