@@ -16,7 +16,7 @@ const int NUM_DIGITS = 10;
 const int SUB_MIN = 1;
 const int SUB_MAX = 3;
 
-void generateAndPrintKey(const int pin[], int pinLength, int pinSubs[], int numDigits) {
+void generateAndPrintSubs(const int pin[], int pinLength, int pinSubs[], int numDigits) {
     for (int i = 0; i < numDigits; i++) {
         int randomNumber = (rand() % (SUB_MAX - SUB_MIN + 1)) + SUB_MIN;
         cout << randomNumber << ' ';
@@ -38,30 +38,37 @@ void printArray(const int values[], int length) {
     }
 }
 
-int main() {
-    int pinSubs[PIN_LENGTH];
-    srand(time(nullptr));
-    cout << "PIN: ";
-    printArray(DIGITS, NUM_DIGITS);
-    cout << endl;
-    cout << "NUM: ";
-    generateAndPrintKey(PIN, PIN_LENGTH, pinSubs, NUM_DIGITS);
+bool requestPin(const int pinSubs[], int pinLength) {
     bool pinWrong = false;
-    for (int pinSub : pinSubs) {
+    for (int i = 0; i < pinLength; i++) {
         char pinEntryChar;
         cin >> pinEntryChar;
         int pinEntryDigit = pinEntryChar - '0';
-        if (pinSub != pinEntryDigit) {
+        if (pinSubs[i] != pinEntryDigit) {
             pinWrong = true;
             // accept the rest of the PIN even though it's already wrong
         }
     }
+    return !pinWrong;
+}
+
+int main() {
+    int pinSubs[PIN_LENGTH];
+    long seed = time(nullptr);
+    cerr << seed << endl;  // stage: cut
+    srand(seed);
+    cout << "PIN: ";
+    printArray(DIGITS, NUM_DIGITS);
+    cout << endl;
+    cout << "NUM: ";
+    generateAndPrintSubs(PIN, PIN_LENGTH, pinSubs, NUM_DIGITS);
+    bool pinCorrect = requestPin(pinSubs, PIN_LENGTH);
     cout << "Your PIN is ";
-    if (pinWrong) {
+    if (!pinCorrect) {
         cout << "not ";
     }
     cout << "correct" << endl;
-    return 0;
+    return 0;    
 }
 
 #pragma clang diagnostic pop            // stage: cut
