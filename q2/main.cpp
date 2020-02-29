@@ -6,17 +6,19 @@
 
 using namespace std;
 
+const int OFFSET_UPPERCASE = 'A' - 'a';
+
 // Converts simple lower case letters to upper case.
 // Only modifies characters in the range [a, z]. 
 // Returns any other argument unchanged.
 char toUpperCase(char ch) {
     if (ch >= 'a' && ch <= 'z') {
-        return static_cast<char>(ch - ('a' - 'A'));
+        return static_cast<char>(ch + OFFSET_UPPERCASE);
     }
     return ch;
 }
 
-// Checks whether a string is a palindrome, case-insensitively
+// Checks whether a string is a palindrome, case-insensitively.
 // Behavior may not be what you want if string contains non-letters such 
 // as spaces or apostrophes, or letters with diacritic marks.
 bool isPalindrome(const string& str) {
