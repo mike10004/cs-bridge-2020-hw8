@@ -35,7 +35,7 @@ def main():
         cases.append(case)
     definition = {
         "input": "{numbers}\n",
-        "expected": "Please enter 20 integers separated by a space:\n{numbers}\nThe minimum value is {minvalue}, and it is located in the following indices: {indices}",
+        "expected": "Please enter 20 integers separated by a space:\n{numbers}\nThe minimum value is {minvalue}, and it is located in the following indices: {indices}\n",
         "param_names": [
             "numbers", "minvalue", "indices"
         ],
