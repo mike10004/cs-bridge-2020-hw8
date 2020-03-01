@@ -16,10 +16,27 @@ const int NUM_DIGITS = 10;
 const int SUB_MIN = 1;
 const int SUB_MAX = 3;
 
+/**
+ * Generates a random integer in the given range.
+ * Random number generator must be seeded before calling this function.
+ * Behavior is undefined if range size is larger than maximum positive int.
+ * @param minInclusive range minimum (inclusive)
+ * @param maxInclusive range maximum (inclusive)
+ * @return a randomly generated integer
+ */
 int generateRandomInt(int minInclusive, int maxInclusive) {
     return (rand() % (maxInclusive - minInclusive + 1)) + minInclusive;
 }
 
+/**
+ * Generates a sequence of substitute numbers for the user to enter
+ * instead of their PIN and records the correct substituted-PIN
+ * in an array.
+ * @param pin PIN number
+ * @param pinLength PIN length
+ * @param pinSubs destination for correct sequence of substitute PIN digits 
+ * @param numDigits number of possible values for each digit of PIN
+ */
 void generateAndPrintSubs(const int pin[], int pinLength, int pinSubs[], int numDigits) {
     for (int i = 0; i < numDigits; i++) {
         int randomNumber = generateRandomInt(SUB_MIN, SUB_MAX);
@@ -32,6 +49,11 @@ void generateAndPrintSubs(const int pin[], int pinLength, int pinSubs[], int num
     }
 }
 
+/**
+ * Prints an array.
+ * @param values array
+ * @param length array length
+ */
 void printArray(const int values[], int length) {
     for (int i = 0; i < length; i++) {
         if (i > 0) {
@@ -41,7 +63,14 @@ void printArray(const int values[], int length) {
     }
 }
 
-bool requestPin(const int pinSubs[], int pinLength) {
+/**
+ * Reads a sequence of substitute PIN numbers from standard input
+ * and checks whether they are correct.
+ * @param pinSubs array containing the correct sequence of substitue PIN digits
+ * @param pinLength number of digits to read
+ * @return true if the correct sequence of digits is read
+ */
+bool readSubbedPin(const int pinSubs[], int pinLength) {
     bool pinWrong = false;
     for (int i = 0; i < pinLength; i++) {
         char pinEntryChar;
@@ -55,6 +84,12 @@ bool requestPin(const int pinSubs[], int pinLength) {
     return !pinWrong;
 }
 
+/**
+ * Prints a set of substitute digit mappings for a PIN number, 
+ * reads a sequence of digits from standard input, and reports
+ * whether the input sequence is correct.
+ * @return zero on clean exit (regardless of PIN correctness)
+ */
 int main() {
     int pinSubs[PIN_LENGTH];
     long seed = time(nullptr);
@@ -72,7 +107,7 @@ int main() {
     cout << "NUM: ";
     generateAndPrintSubs(PIN, PIN_LENGTH, pinSubs, NUM_DIGITS);
     cout << endl;
-    bool pinCorrect = requestPin(pinSubs, PIN_LENGTH);
+    bool pinCorrect = readSubbedPin(pinSubs, PIN_LENGTH);
     cout << "Your PIN is ";
     if (!pinCorrect) {
         cout << "not ";
