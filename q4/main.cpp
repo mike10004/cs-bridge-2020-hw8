@@ -17,7 +17,7 @@ const int SUB_MIN = 1;
 const int SUB_MAX = 3;
 
 int generateRandomInt(int minInclusive, int maxInclusive) {
-    return (rand() % (maxInclusive - minInclusive + 1)) + SUB_MIN;
+    return (rand() % (maxInclusive - minInclusive + 1)) + minInclusive;
 }
 
 void generateAndPrintSubs(const int pin[], int pinLength, int pinSubs[], int numDigits) {
@@ -30,7 +30,6 @@ void generateAndPrintSubs(const int pin[], int pinLength, int pinSubs[], int num
             }
         }
     }
-    cout << endl;
 }
 
 void printArray(const int values[], int length) {
@@ -72,6 +71,7 @@ int main() {
     cout << endl;
     cout << "NUM: ";
     generateAndPrintSubs(PIN, PIN_LENGTH, pinSubs, NUM_DIGITS);
+    cout << endl;
     bool pinCorrect = requestPin(pinSubs, PIN_LENGTH);
     cout << "Your PIN is ";
     if (!pinCorrect) {
