@@ -9,6 +9,11 @@ using namespace std;
 
 const int NUM_VALUES = 20;
 
+/**
+ * Prompts the user to enter values to populate an array.
+ * @param values the array
+ * @param numValues number of values to request
+ */
 void populate(int values[], int numValues) {
     cout << "Please enter " << numValues << " integers separated by a space:" << endl;
     for (int i = 0; i < numValues; i++) {
@@ -16,6 +21,12 @@ void populate(int values[], int numValues) {
     }
 }
 
+/**
+ * Finds the minimum value of an array.
+ * @param values the array
+ * @param numValues array length
+ * @return the minimum value
+ */
 int findMin(const int values[], int numValues) {
     assert(numValues > 0);
     int minValue = values[0];
@@ -27,6 +38,12 @@ int findMin(const int values[], int numValues) {
     return minValue;
 }
 
+/**
+ * Prints the indices at which a value is found in an array.
+ * @param needle the value to print the indices of
+ * @param haystack the array
+ * @param numValues array length
+ */
 void printIndices(int needle, const int haystack[], int numValues) {
     for (int i = 0; i < numValues; i++) {
         if (haystack[i] == needle) {
@@ -35,6 +52,10 @@ void printIndices(int needle, const int haystack[], int numValues) {
     }
 }
 
+/**
+ * Prints the indices where the minium value of an array is found.
+ * @return zero on normal operation
+ */
 int main() {
     int values[NUM_VALUES];
     populate(values, NUM_VALUES);
