@@ -27,7 +27,7 @@ void populate(int values[], int numValues) {
  * @param numValues array length
  * @return the minimum value
  */
-int findMin(const int values[], int numValues) {
+int minInArray(const int *values, int numValues) {
     assert(numValues > 0);
     int minValue = values[0];
     for (int i = 1; i < numValues; i++) {
@@ -59,7 +59,7 @@ void printIndices(int needle, const int haystack[], int numValues) {
 int main() {
     int values[NUM_VALUES];
     populate(values, NUM_VALUES);
-    int minValue = findMin(values, NUM_VALUES);
+    int minValue = minInArray(values, NUM_VALUES);
     cout << "The minimum value is " << minValue 
          << ", and it is located in the following indices:";
     printIndices(minValue, values, NUM_VALUES);
