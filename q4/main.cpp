@@ -16,9 +16,13 @@ const int NUM_DIGITS = 10;
 const int SUB_MIN = 1;
 const int SUB_MAX = 3;
 
+int generateRandomInt(int minInclusive, int maxInclusive) {
+    return (rand() % (maxInclusive - minInclusive + 1)) + SUB_MIN;
+}
+
 void generateAndPrintSubs(const int pin[], int pinLength, int pinSubs[], int numDigits) {
     for (int i = 0; i < numDigits; i++) {
-        int randomNumber = (rand() % (SUB_MAX - SUB_MIN + 1)) + SUB_MIN;
+        int randomNumber = generateRandomInt(SUB_MIN, SUB_MAX);
         cout << randomNumber << ' ';
         for (int j = 0; j < pinLength; j++) {
             if (pin[j] == i) {
