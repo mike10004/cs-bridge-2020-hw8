@@ -66,19 +66,22 @@ void printArray(const int values[], int length) {
 /**
  * Reads a sequence of substitute PIN numbers from standard input
  * and checks whether they are correct.
- * @param pinSubs array containing the correct sequence of substitue PIN digits
+ * @param pinSubs array containing the correct sequence of substitute PIN digits
  * @param pinLength number of digits to read
  * @return true if the correct sequence of digits is read
  */
 bool readSubbedPin(const int pinSubs[], int pinLength) {
     bool pinWrong = false;
-    for (int i = 0; i < pinLength; i++) {
-        char pinEntryChar;
-        cin >> pinEntryChar;
+    string userInput;
+    cin >> userInput;
+    if (userInput.length() != pinLength) {
+        pinWrong = true;
+    }
+    for (int i = 0; i < pinLength && !pinWrong; i++) {
+        char pinEntryChar = userInput[i];
         int pinEntryDigit = pinEntryChar - '0';
         if (pinSubs[i] != pinEntryDigit) {
             pinWrong = true;
-            // accept the rest of the PIN even though it's already wrong
         }
     }
     return !pinWrong;
